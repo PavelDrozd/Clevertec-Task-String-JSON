@@ -1,0 +1,33 @@
+plugins {
+    id 'java'
+    id "io.freefair.lombok" version "6.5.1"
+}
+
+group = 'ru.clevetec'
+version = '0.1'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    junitVersion = '5.9.2'
+    mockitoVersion = '5.6.0'
+    assertJVersion = '3.24.2'
+    gsonVersion = '2.10.1'
+}
+
+dependencies {
+    testImplementation "com.google.code.gson:gson:${gsonVersion}"
+
+    testImplementation "org.mockito:mockito-junit-jupiter:${mockitoVersion}"
+
+    testImplementation "org.assertj:assertj-core:${assertJVersion}"
+
+    testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+}
+
+test {
+    useJUnitPlatform()
+}
